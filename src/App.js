@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-function App() {
+import index from "./pages/Index/Index";
+import registerstaff from "./pages/RegisterStaff/RegisterStaff";
+import registermemberstaff from "./pages/RegisterMemberStaff/RegisterMemberStaff";
+import listpersonstaff from "./pages/ListPersonStaff/ListPersonStaff";
+
+// import { useRef } from "react";
+import { Route } from "wouter";
+
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Route path="/" component={index} />
+			<Route path="/registerstaff" component={registerstaff} />
+      <Route path="/registermemberstaff" component={registermemberstaff} />
+      <Route path="/listpersonstaff" component={listpersonstaff} />
     </div>
   );
 }
 
-export default App;

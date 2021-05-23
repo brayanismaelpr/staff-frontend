@@ -93,10 +93,14 @@ export default function FormRegistrar() {
 						id="grid-state"
 						onChange={(e) => setIdEquipo(e.target.value)}
 					>
-						<option value="">Seleccione un equipo</option>
-						<option value="0">Barcelona</option>
-						<option value="1">Atletico de madrid</option>
-						<option value="4">PSG</option>
+						<option>Seleccione un equipo</option>
+						<option value="1">Barcelona FC</option>
+						<option value="2">Club Atletico de madrid</option>
+						<option value="3">Bayern Munich</option>
+						<option value="4">Borussia Dortmund</option>
+						<option value="5">Bayern Munich</option>
+						<option value="6">Lille Olympique</option>
+						<option value="7">Paris Saint Germain FC</option>
 					</select>
 				</div>
 			</div>

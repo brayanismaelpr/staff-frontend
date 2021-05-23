@@ -64,9 +64,13 @@ export default function FormRegistrar() {
 							name="id_equipo"
 						>
 							<option>Seleccione un equipo</option>
-							<option value="1">Barcelona</option>
-							<option value="2">Atletico de madrid</option>
-							<option value="3">PSG</option>
+							<option value="1">Barcelona FC</option>
+							<option value="2">Club Atletico de madrid</option>
+							<option value="3">Bayern Munich</option>
+							<option value="4">Borussia Dortmund</option>
+							<option value="5">Bayern Munich</option>
+							<option value="6">Lille Olympique</option>
+							<option value="7">Paris Saint Germain FC</option>
 						</select>
 						<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
 							<svg

@@ -77,11 +77,11 @@ export default function FormRegistrar() {
 
 	return (
 		<form
-			class="mt-8 mb-12 shadow-2xl w-4/5 mx-auto max-w-xl py-12 px-12"
+			class="mt-8 mb-12 shadow-2xl mx-auto max-w-5xl py-12 px-12"
 			// onSubmit={handleSubmit}
 		>
 			<div className="flex flex-wrap -mx-3 mb-6">
-				<div className="w-full px-3 mb-6 md:mb-0">
+				<div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
 					<label
 						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
 						for="grid-first-name"
@@ -99,6 +99,8 @@ export default function FormRegistrar() {
 						<option value="2">Inactivo</option>
 						<option value="4">Retirado</option>
 					</select>
+				</div>
+				<div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
 					<label
 						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
 						for="grid-first-name"
@@ -114,9 +116,7 @@ export default function FormRegistrar() {
 						name="documento"
 					/>
 				</div>
-			</div>
-			<div className="flex flex-wrap -mx-3 mb-6">
-				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+				<div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
 					<label
 						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
 						for="grid-first-name"
@@ -132,7 +132,9 @@ export default function FormRegistrar() {
 						name="nombres"
 					/>
 				</div>
-				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+			</div>
+			<div className="flex flex-wrap -mx-3 mb-6">
+				<div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
 					<label
 						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
 						for="grid-first-name"
@@ -148,9 +150,7 @@ export default function FormRegistrar() {
 						name="apellidos"
 					/>
 				</div>
-			</div>
-			<div className="flex flex-wrap -mx-3 mb-6">
-				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+				<div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
 					<label
 						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
 						for="grid-first-name"
@@ -166,7 +166,7 @@ export default function FormRegistrar() {
 						name="email"
 					/>
 				</div>
-				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+				<div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
 					<label
 						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
 						for="grid-first-name"
@@ -184,7 +184,7 @@ export default function FormRegistrar() {
 				</div>
 			</div>
 			<div className="flex flex-wrap -mx-3 mb-6">
-				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+				<div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
 					<label
 						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
 						for="grid-first-name"
@@ -200,7 +200,7 @@ export default function FormRegistrar() {
 						name="celular"
 					/>
 				</div>
-				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+				<div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
 					<label
 						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
 						for="grid-first-name"
@@ -215,9 +215,7 @@ export default function FormRegistrar() {
 						name="fecha_nacimiento"
 					/>
 				</div>
-			</div>
-			<div className="flex flex-wrap -mx-3 mb-6">
-				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+				<div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
 					<label
 						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
 						for="grid-first-name"
@@ -233,7 +231,9 @@ export default function FormRegistrar() {
 						name="direccion"
 					/>
 				</div>
-				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+			</div>
+			<div className="flex flex-wrap -mx-3 mb-6">
+				<div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
 					<label
 						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
 						for="grid-first-name"
@@ -249,9 +249,7 @@ export default function FormRegistrar() {
 						name="talla_sudadera"
 					/>
 				</div>
-			</div>
-			<div className="flex flex-wrap -mx-3 mb-6">
-				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+				<div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
 					<label
 						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
 						for="grid-first-name"
@@ -267,7 +265,7 @@ export default function FormRegistrar() {
 						name="talla_camiseta"
 					/>
 				</div>
-				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+				<div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
 					<label
 						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
 						for="grid-first-name"
@@ -285,7 +283,7 @@ export default function FormRegistrar() {
 				</div>
 			</div>
 			<div className="flex flex-wrap -mx-3 mb-6">
-				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+				<div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
 					<label
 						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
 						for="grid-first-name"
@@ -301,7 +299,7 @@ export default function FormRegistrar() {
 						name="talla_zapato"
 					/>
 				</div>
-				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+				<div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
 					<label
 						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
 						for="grid-first-name"
@@ -317,9 +315,7 @@ export default function FormRegistrar() {
 						name="tipo_sangre"
 					/>
 				</div>
-			</div>
-			<div className="flex flex-wrap -mx-3 mb-6">
-				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+				<div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
 					<label
 						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
 						for="grid-first-name"
@@ -335,6 +331,8 @@ export default function FormRegistrar() {
 						name="nivel_hemoglobina"
 					/>
 				</div>
+			</div>
+			<div className="flex flex-wrap -mx-3 mb-6">
 				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
 					<label
 						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -351,9 +349,7 @@ export default function FormRegistrar() {
 						name="tipo_sangre"
 					/>
 				</div>
-			</div>
-			<div className="flex flex-wrap -mx-3 mb-6">
-				<div className="w-full px-3 mb-6 md:mb-0">
+				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
 					<label
 						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
 						for="grid-first-name"

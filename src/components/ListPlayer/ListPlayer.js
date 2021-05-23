@@ -52,7 +52,6 @@ export default function ListPlayer() {
 										<option value="2">Club Atletico de madrid</option>
 										<option value="3">Bayern Munich</option>
 										<option value="4">Borussia Dortmund</option>
-										<option value="5">Bayern Munich</option>
 										<option value="6">Lille Olympique</option>
 										<option value="7">Paris Saint Germain FC</option>
 									</select>
@@ -101,9 +100,7 @@ export default function ListPlayer() {
 												</div>
 											</td>
 											<td className="py-3 px-6 text-center">
-												<span className="font-medium bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">
-													{jugador.apellidos}
-												</span>
+												<span className="font-medium">{jugador.apellidos}</span>
 											</td>
 											<td className="py-3 px-6 text-center">
 												<span className="font-medium">
@@ -114,13 +111,15 @@ export default function ListPlayer() {
 												<span className="font-medium">{jugador.telefono}</span>
 											</td>
 											<td className="py-3 px-6 text-center">
-												<p className="font-medium">{jugador.correo}</p>
+												<span className="font-medium bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">
+													{jugador.correo}
+												</span>
 											</td>
 											<td className="py-3 px-6 text-center">
-												<a href="#">
+												<a href="www.google.com">
 													<i className="far fa-edit mr-2"></i>
 												</a>
-												<a href="#">
+												<a href="www.google.com">
 													<i className="far fa-trash-alt text-red-500"></i>
 												</a>
 											</td>

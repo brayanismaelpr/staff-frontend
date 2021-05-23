@@ -10,15 +10,20 @@ import registerfile from "./pages/RegisterFile/RegisterFile";
 import { Route } from "wouter";
 
 export default function App() {
-  return (
-    <div className="App">
-      <Route path="/" component={index} />
-			<Route path="/registerstaff" component={registerstaff} />
-      <Route path="/registerfile" component={registerfile} />
-      <Route path="/registermemberstaff" component={registermemberstaff} />
-      <Route path="/listpersonstaff" component={listpersonstaff} />
-      <Route path="/listplayer" component={listplayer} />
-    </div>
-  );
+	return (
+		<div className="App">
+			<Route path="/" component={index} />
+			<Route path="/registrar-cuerpo-tecnico" component={registerstaff} />
+			<Route path="/registrar-ficha-jugador" component={registerfile} />
+			<Route
+				path="/registrar-integrante-cuerpo-tecnico"
+				component={registermemberstaff}
+			/>
+			<Route
+				path="/listar-integrantes-cuerpo-tecnico"
+				component={listpersonstaff}
+			/>
+			<Route path="/listar-jugadores" component={listplayer} />
+		</div>
+	);
 }
-

@@ -79,7 +79,6 @@ export default function List() {
 										<option value="2">Club Atletico de madrid</option>
 										<option value="3">Bayern Munich</option>
 										<option value="4">Borussia Dortmund</option>
-										<option value="5">Bayern Munich</option>
 										<option value="6">Lille Olympique</option>
 										<option value="7">Paris Saint Germain FC</option>
 									</select>
@@ -168,10 +167,10 @@ export default function List() {
 												</p>
 											</td>
 											<td className="py-3 px-6 text-center">
-												<a href="#">
+												<a href="www.google.com">
 													<i className="far fa-edit mr-2"></i>
 												</a>
-												<a href="#">
+												<a href="www.google.com">
 													<i className="far fa-trash-alt text-red-500"></i>
 												</a>
 											</td>

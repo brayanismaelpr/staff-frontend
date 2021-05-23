@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
+import SweetAlert from "sweetalert-react";
 
 export default function FormRegistrar() {
 	const [data, setData] = useState({});
 	const [listaTipoIntegrantes, setListaTipoIntegrantes] = useState([]);
 	const [listaCuerpoTecnico, setListaCuerpoTecnico] = useState([]);
 	const [idEquipo, setIdEquipo] = useState(undefined);
+	const [error, setError] = useState(false);
+	const [success, setSuccess] = useState(false);
 
 	useEffect(() => {
 		const getlistaTipoIntegrantes = async () => {
@@ -71,7 +74,9 @@ export default function FormRegistrar() {
 			}
 		).then((res) => res.json());
 		if (resp.error) {
-			alert(resp.error);
+			setError(true);
+		} else {
+			setSuccess(true);
 		}
 	};
 
@@ -80,6 +85,18 @@ export default function FormRegistrar() {
 			class="mt-8 mb-12 shadow-2xl w-4/5 mx-auto max-w-xl py-12 px-12"
 			onSubmit={handleSubmit}
 		>
+			<SweetAlert
+				show={error}
+				title="Error"
+				text="Ha ocurrido un error :l"
+				onConfirm={() => setError(false)}
+			/>
+			<SweetAlert
+				show={success}
+				title="Todo ha salido bien"
+				text="Integrante registrado correctamente :)"
+				onConfirm={() => setSuccess(false)}
+			/>
 			<div className="flex flex-wrap -mx-3 mb-6">
 				<div className="w-full px-3 mb-6 md:mb-0">
 					<label
@@ -98,7 +115,6 @@ export default function FormRegistrar() {
 						<option value="2">Club Atletico de madrid</option>
 						<option value="3">Bayern Munich</option>
 						<option value="4">Borussia Dortmund</option>
-						<option value="5">Bayern Munich</option>
 						<option value="6">Lille Olympique</option>
 						<option value="7">Paris Saint Germain FC</option>
 					</select>
@@ -116,7 +132,7 @@ export default function FormRegistrar() {
 						className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
 						id="grid-first-name"
 						type="text"
-						placeholder="Juan"
+						placeholder="Nombre integrante cuerpo técnico"
 						onChange={handleChange}
 						name="nombres"
 					/>
@@ -150,7 +166,7 @@ export default function FormRegistrar() {
 						className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
 						id="grid-first-name"
 						type="email"
-						placeholder="Juan@gmail.com"
+						placeholder="Correo electrónico"
 						onChange={handleChange}
 						name="email"
 					/>

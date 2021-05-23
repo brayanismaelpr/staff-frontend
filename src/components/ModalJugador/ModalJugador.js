@@ -8,13 +8,13 @@ export default function ModalJugador({ statemodal }) {
 			<ul className="">
 				<li className="p-3 flex items-center rounded-lg hover:bg-gray-50">
 					<i class="fas fa-futbol text-yellow-500"></i>
-					<a className="ml-4 text-gray-500" href="/registerstaff">
+					<a className="ml-4 text-gray-500" href="/registrar-ficha-jugador">
 						Crear ficha jugador
 					</a>
 				</li>
 				<li className="p-3 flex items-center rounded-lg hover:bg-gray-50">
 					<i class="fas fa-book-open text-yellow-500"></i>
-					<a className="ml-4 text-gray-500" href="/listplayer">
+					<a className="ml-4 text-gray-500" href="/listar-jugadores">
 						Listar jugadores
 					</a>
 				</li>

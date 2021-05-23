@@ -1,55 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function FormRegistrar() {
 	const [data, setData] = useState({});
-	// const [listaJugadores, setlistaJugadores] = useState([]);
-	// const [listaCuerpoTecnico, setListaCuerpoTecnico] = useState([]);
-	// const [idEquipo, setIdEquipo] = useState(undefined);
-
-	// useEffect(() => {
-	// 	const getlistaJugadores = async () => {
-	// 		const res = await listarTipoIntegrantes();
-	// 		if (!res.error) {
-	// 			setlistaJugadores(res);
-	// 		}
-	// 	};
-	// 	getlistaJugadores();
-	// }, []);
-
-	// useEffect(() => {
-	// 	const getlistaCuerpoTecnicos = async () => {
-	// 		const res = await listarCuerpoTecnicos();
-	// 		if (!res.error) {
-	// 			setListaCuerpoTecnico(res);
-	// 		}
-	// 	};
-	// 	if (idEquipo) {
-	// 		getlistaCuerpoTecnicos();
-	// 	}
-	// }, [idEquipo]);
-
-	// const listarTipoIntegrantes = async () => {
-	// 	const resp = await fetch("http://localhost:4000/tipo_integrante/listar", {
-	// 		method: "GET",
-	// 		headers: {
-	// 			"Content-Type": "application/json",
-	// 		},
-	// 	}).then((res) => res.json());
-	// 	return resp;
-	// };
-
-	// const listarCuerpoTecnicos = async () => {
-	// 	const resp = await fetch(
-	// 		`http://localhost:4000/cuerpo_tecnico/listar_por_equipo/${idEquipo}`,
-	// 		{
-	// 			method: "GET",
-	// 			headers: {
-	// 				"Content-Type": "application/json",
-	// 			},
-	// 		}
-	// 	).then((res) => res.json());
-	// 	return resp;
-	// };
 
 	const handleChange = (e) => {
 		const target = e.target;
@@ -58,27 +10,24 @@ export default function FormRegistrar() {
 		setData({ ...data, [name]: value });
 	};
 
-	// const handleSubmit = async (e) => {
-	// 	e.preventDefault();
-	// 	const resp = await fetch(
-	// 		"http://localhost:4000/integrante_cuerpo_tecnico/guardar",
-	// 		{
-	// 			method: "POST",
-	// 			headers: {
-	// 				"Content-Type": "application/json",
-	// 			},
-	// 			body: JSON.stringify(data),
-	// 		}
-	// 	).then((res) => res.json());
-	// 	if (resp.error) {
-	// 		alert(resp.error);
-	// 	}
-	// };
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		const resp = await fetch("http://localhost:4001/jugador/guardar", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(data),
+		}).then((res) => res.json());
+		if (resp.error) {
+			alert(resp.error);
+		}
+	};
 
 	return (
 		<form
 			class="mt-8 mb-12 shadow-2xl mx-auto max-w-5xl py-12 px-12"
-			// onSubmit={handleSubmit}
+			onSubmit={handleSubmit}
 		>
 			<div className="flex flex-wrap -mx-3 mb-6">
 				<div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -91,12 +40,13 @@ export default function FormRegistrar() {
 					<select
 						className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
 						id="grid-state"
-						// onChange={(e) => setEstado(e.target.value)}
+						onChange={handleChange}
+						name="estado"
 					>
 						<option value="">Seleccione un estado</option>
-						<option value="0">Lesionado</option>
-						<option value="1">Activo</option>
-						<option value="2">Inactivo</option>
+						<option value="1">Lesionado</option>
+						<option value="2">Activo</option>
+						<option value="3">Inactivo</option>
 						<option value="4">Retirado</option>
 					</select>
 				</div>
@@ -163,7 +113,7 @@ export default function FormRegistrar() {
 						type="email"
 						placeholder="Juan@gmail.com"
 						onChange={handleChange}
-						name="email"
+						name="correo"
 					/>
 				</div>
 				<div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -333,7 +283,7 @@ export default function FormRegistrar() {
 				</div>
 			</div>
 			<div className="flex flex-wrap -mx-3 mb-6">
-				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+				<div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
 					<label
 						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
 						for="grid-first-name"
@@ -349,7 +299,7 @@ export default function FormRegistrar() {
 						name="tipo_sangre"
 					/>
 				</div>
-				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+				<div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
 					<label
 						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
 						for="grid-first-name"
@@ -364,6 +314,26 @@ export default function FormRegistrar() {
 						onChange={handleChange}
 						name="nivel_lacteo"
 					/>
+				</div>
+				<div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+					<label
+						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+						for="grid-first-name"
+					>
+						Equipo
+					</label>
+					<select
+						className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+						id="grid-state"
+						onChange={handleChange}
+						name="id_equipo"
+					>
+						<option value="">Seleccione un estado</option>
+						<option value="1">FC Barcelona</option>
+						<option value="2">PSG</option>
+						<option value="3">Atletico de Madrid</option>
+						<option value="4">Real Madrid</option>
+					</select>
 				</div>
 			</div>
 			<div class="flex items-center justify-between pt-4">

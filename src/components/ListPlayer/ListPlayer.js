@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react";
 
-export default function List() {
-	const [listaCuerpoTecnico, setListaCuerpoTecnico] = useState([]);
+export default function ListPlayer() {
+	// const [listaCuerpoTecnico, setListaCuerpoTecnico] = useState([]);
+	const [listaPlayer, setListaPlayer] = useState([]);
 	const [idEquipo, setIdEquipo] = useState(undefined);
-	const [idCuerpoTecnico, setIdCuerpoTecnico] = useState(undefined);
+	// const [idCuerpoTecnico, setIdCuerpoTecnico] = useState(undefined);
+	const [idPlayer, setIdPlayer] = useState(undefined);
 	const [listaIntegrantes, setListaIntegrantes] = useState([]);
 
 	useEffect(() => {
-		const getlistaCuerpoTecnicos = async () => {
-			const res = await listarCuerpoTecnicos();
+		const getlistaPlayers = async () => {
+			const res = await listarPlayers();
 			if (!res.error) {
-				setListaCuerpoTecnico(res);
+				setListaPlayer(res);
 			}
 		};
 		if (idEquipo) {
-			getlistaCuerpoTecnicos();
+			getlistaPlayers();
 		}
 	}, [idEquipo]);
 
@@ -28,9 +30,9 @@ export default function List() {
 		if (idEquipo) {
 			getlistaIntegrantes();
 		}
-	}, [idCuerpoTecnico]);
+	}, [idPlayer]);
 
-	const listarCuerpoTecnicos = async () => {
+	const listarPlayers = async () => {
 		const resp = await fetch(
 			`http://localhost:4000/cuerpo_tecnico/listar_por_equipo/${idEquipo}`,
 			{
@@ -45,7 +47,7 @@ export default function List() {
 
 	const listarIntegrantes = async () => {
 		const resp = await fetch(
-			`http://localhost:4000/integrante_cuerpo_tecnico/listar_por_cuerpo_tecnico/${idCuerpoTecnico}`,
+			`http://localhost:4000/integrante_cuerpo_tecnico/listar_por_cuerpo_tecnico/${idPlayer}`,
 			{
 				method: "GET",
 				headers: {
@@ -62,7 +64,7 @@ export default function List() {
 				<div className="min-w-screen min-h-screen flex justify-center bg-gray-50 font-sans overflow-hidden">
 					<div className="w-full lg:w-5/6">
 						<h1 className="text-3xl text-center mt-8 font-medium">
-							Lista integrante cuerpo técnico
+							Lista jugadores de un equipo
 						</h1>
 						<div class="py-0.5 mt-4 bg-yellow-500 w-14 mx-auto"></div>
 						<div className="md:flex flex-wrap items-center mt-8">
@@ -93,15 +95,15 @@ export default function List() {
 							</div>
 							<div className="ml-2">
 								<div className="relative">
-									<label class="font-medium">Cuerpo técnico:</label>
+									<label class="font-medium">Jugador:</label>
 									<select
 										className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
 										id="grid-state"
-										onChange={(e) => setIdCuerpoTecnico(e.target.value)}
+										onChange={(e) => setIdPlayer(e.target.value)}
 										name="id_cuerpo_tecnico"
 									>
 										<option value="">Seleccione una opción</option>
-										{listaCuerpoTecnico.map((el, pos) => (
+										{listaPlayer.map((el, pos) => (
 											<option value={el.id} key={pos}>
 												{el.nombre}
 											</option>
@@ -123,11 +125,12 @@ export default function List() {
 							<table className="min-w-max w-full table-auto">
 								<thead className="bg-yellow-500">
 									<tr className="text-white uppercase text-sm leading-normal">
+										<th className="py-3 px-6 text-left">Documento</th>
 										<th className="py-3 px-6 text-left">Nombre</th>
-										<th className="py-3 px-6 text-left">Apellidos</th>
-										<th className="py-3 px-6 text-center">Email</th>
-										<th className="py-3 px-6 text-center">Teléfono</th>
+										<th className="py-3 px-6 text-center">Apellidos</th>
 										<th className="py-3 px-6 text-center">Fecha nacimiento</th>
+										<th className="py-3 px-6 text-center">Teléfono</th>
+										<th className="py-3 px-6 text-center">Correo</th>
 										<th className="py-3 px-6 text-center">Acciones</th>
 									</tr>
 								</thead>
@@ -137,30 +140,35 @@ export default function List() {
 											<td className="py-3 px-6 text-left whitespace-nowrap">
 												<div className="flex items-center">
 													<span className="font-medium">
-														{integrante.nombres}
+														{integrante.documento}
 													</span>
 												</div>
 											</td>
 											<td className="py-3 px-6 text-left">
 												<div className="flex items-center">
 													<span className="font-medium">
-														{integrante.apellidos}
+														{integrante.nombres}
 													</span>
 												</div>
 											</td>
 											<td className="py-3 px-6 text-center">
 												<span className="font-medium bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">
-													{integrante.email}
+													{integrante.apellidos}
 												</span>
 											</td>
 											<td className="py-3 px-6 text-center">
 												<span className="font-medium">
-													{integrante.celular}
+													{integrante.fecha_nacimiento}
+												</span>
+											</td>
+											<td className="py-3 px-6 text-center">
+												<span className="font-medium">
+													{integrante.telefono}
 												</span>
 											</td>
 											<td className="py-3 px-6 text-center">
 												<p className="font-medium">
-													{integrante.fecha_nacimiento}
+													{integrante.correo}
 												</p>
 											</td>
 											<td className="py-3 px-6 text-center">

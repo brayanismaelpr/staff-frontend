@@ -63,6 +63,7 @@ export default function FormRegistrar() {
 							onChange={handleChange}
 							name="id_equipo"
 						>
+							<option>Seleccione un equipo</option>
 							<option value="1">Barcelona</option>
 							<option value="2">Atletico de madrid</option>
 							<option value="3">PSG</option>

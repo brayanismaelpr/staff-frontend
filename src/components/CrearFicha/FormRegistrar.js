@@ -238,24 +238,136 @@ export default function FormRegistrar() {
 						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
 						for="grid-first-name"
 					>
-						Indumentaria
+						Talla sudadera
 					</label>
-					<select
-						className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-						id="grid-state"
-						onChange={(e) => setEstado(e.target.value)}
+					<input
+						className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+						id="grid-first-name"
+						type="text"
+						placeholder="M"
+						onChange={handleChange}
+						name="talla_sudadera"
+					/>
+				</div>
+			</div>
+			<div className="flex flex-wrap -mx-3 mb-6">
+				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+					<label
+						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+						for="grid-first-name"
 					>
-						<option value="">Seleccione un estado</option>
-						<option value="0">Tallas</option>
-						<option value="1">Sudadera</option>
-						<option value="2">Camiseta</option>
-						<option value="4">Pantaloneta</option>
-						<option value="4">Zapato deportivo</option>
-						<option value="4">Tipo de sangre</option>
-						<option value="4">Nivel de hemoglobina</option>
-						<option value="4">Consumo de 02</option>
-						<option value="4">Nivel de lacteo en sangre</option>
-					</select>
+						Talla camiseta
+					</label>
+					<input
+						className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+						id="grid-first-name"
+						type="text"
+						placeholder="M"
+						onChange={handleChange}
+						name="talla_camiseta"
+					/>
+				</div>
+				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+					<label
+						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+						for="grid-first-name"
+					>
+						Talla pantaloneta
+					</label>
+					<input
+						className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+						id="grid-first-name"
+						type="text"
+						placeholder="M"
+						onChange={handleChange}
+						name="talla_pantaloneta"
+					/>
+				</div>
+			</div>
+			<div className="flex flex-wrap -mx-3 mb-6">
+				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+					<label
+						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+						for="grid-first-name"
+					>
+						Talla zapato deportivo
+					</label>
+					<input
+						className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+						id="grid-first-name"
+						type="text"
+						placeholder="42"
+						onChange={handleChange}
+						name="talla_zapato"
+					/>
+				</div>
+				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+					<label
+						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+						for="grid-first-name"
+					>
+						Tipo de sangre
+					</label>
+					<input
+						className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+						id="grid-first-name"
+						type="text"
+						placeholder="A positivo"
+						onChange={handleChange}
+						name="tipo_sangre"
+					/>
+				</div>
+			</div>
+			<div className="flex flex-wrap -mx-3 mb-6">
+				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+					<label
+						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+						for="grid-first-name"
+					>
+						Nivel de hemoglobina
+					</label>
+					<input
+						className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+						id="grid-first-name"
+						type="text"
+						placeholder="42"
+						onChange={handleChange}
+						name="nivel_hemoglobina"
+					/>
+				</div>
+				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+					<label
+						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+						for="grid-first-name"
+					>
+						Consumo O2
+					</label>
+					<input
+						className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+						id="grid-first-name"
+						type="text"
+						placeholder="A positivo"
+						onChange={handleChange}
+						name="tipo_sangre"
+					/>
+				</div>
+			</div>
+			<div className="flex flex-wrap -mx-3 mb-6">
+				<div className="w-full px-3 mb-6 md:mb-0">
+					<label
+						className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+						for="grid-first-name"
+					>
+						Nivel de lacteo en sangre
+					</label>
+					<input
+						className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+						id="grid-first-name"
+						type="text"
+						placeholder="42"
+						onChange={handleChange}
+						name="nivel_lacteo"
+					/>
 				</div>
 			</div>
 			<div class="flex items-center justify-between pt-4">

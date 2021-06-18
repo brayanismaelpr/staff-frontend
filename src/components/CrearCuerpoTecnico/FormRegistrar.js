@@ -1,10 +1,13 @@
 import { useState } from "react";
-import SweetAlert from "sweetalert-react";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 export default function FormRegistrar() {
 	const [error, setError] = useState(false);
 	const [success, setSuccess] = useState(false);
 	const [data, setData] = useState({});
+
+	const MySwal = withReactContent(Swal);
 
 	const handleChange = (e) => {
 		const target = e.target;
@@ -15,16 +18,33 @@ export default function FormRegistrar() {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const resp = await fetch("http://localhost:4000/cuerpo_tecnico/guardar", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(data),
-		}).then((res) => res.json());
+		const resp = await fetch(
+			"https://api-micro-staff.herokuapp.com/cuerpo_tecnico/guardar",
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(data),
+			}
+		).then((res) => res.json());
 		if (resp.error) {
 			setError(true);
 		} else {
+			MySwal.fire({
+				icon: "success",
+				title: "Éxito!",
+				text: "Todo ha salido correctamente!",
+				didOpen: () => {
+					MySwal.clickConfirm();
+				},
+			}).then(() => {
+				return MySwal.fire({
+					icon: "success",
+					title: "Éxito!",
+					text: "Todo ha salido correctamente!",
+				});
+			});
 			setSuccess(true);
 		}
 	};
@@ -34,18 +54,6 @@ export default function FormRegistrar() {
 			class="mt-8 mb-12 shadow-2xl w-4/5 mx-auto max-w-xl py-12 px-12"
 			onSubmit={handleSubmit}
 		>
-			<SweetAlert
-				show={error}
-				title="Error"
-				text="Ha ocurrido un error :l"
-				onConfirm={() => setError(false)}
-			/>
-			<SweetAlert
-				show={success}
-				title="Todo ha salido bien"
-				text="Cuerpo técnico registrado correctamente :)"
-				onConfirm={() => setSuccess(false)}
-			/>
 			<div className="flex flex-wrap -mx-3 mb-6">
 				<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
 					<label

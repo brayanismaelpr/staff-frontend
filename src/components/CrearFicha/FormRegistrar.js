@@ -15,13 +15,16 @@ export default function FormRegistrar() {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const resp = await fetch("http://localhost:4001/jugador/guardar", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(data),
-		}).then((res) => res.json());
+		const resp = await fetch(
+			"https://api-micro-player.herokuapp.com/jugador/guardar",
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(data),
+			}
+		).then((res) => res.json());
 		if (resp.error) {
 			setError(true);
 		} else {

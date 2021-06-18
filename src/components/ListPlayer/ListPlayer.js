@@ -18,7 +18,7 @@ export default function ListPlayer() {
 
 	const listarJugadores = async () => {
 		const resp = await fetch(
-			`http://localhost:4001/jugador/listar_por_equipo/${idEquipo}`,
+			`https://api-micro-player.herokuapp.com/jugador/listar_por_equipo/${idEquipo}`,
 			{
 				method: "GET",
 				headers: {

@@ -32,18 +32,21 @@ export default function FormRegistrar() {
 	}, [idEquipo]);
 
 	const listarTipoIntegrantes = async () => {
-		const resp = await fetch("http://localhost:4000/tipo_integrante/listar", {
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json",
-			},
-		}).then((res) => res.json());
+		const resp = await fetch(
+			"https://api-micro-staff.herokuapp.com/tipo_integrante/listar",
+			{
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+				},
+			}
+		).then((res) => res.json());
 		return resp;
 	};
 
 	const listarCuerpoTecnicos = async () => {
 		const resp = await fetch(
-			`http://localhost:4000/cuerpo_tecnico/listar_por_equipo/${idEquipo}`,
+			`https://api-micro-staff.herokuapp.com/cuerpo_tecnico/listar_por_equipo/${idEquipo}`,
 			{
 				method: "GET",
 				headers: {
@@ -64,7 +67,7 @@ export default function FormRegistrar() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const resp = await fetch(
-			"http://localhost:4000/integrante_cuerpo_tecnico/guardar",
+			"https://api-micro-staff.herokuapp.com/integrante_cuerpo_tecnico/guardar",
 			{
 				method: "POST",
 				headers: {

@@ -32,7 +32,7 @@ export default function List() {
 
 	const listarCuerpoTecnicos = async () => {
 		const resp = await fetch(
-			`http://localhost:4000/cuerpo_tecnico/listar_por_equipo/${idEquipo}`,
+			`https://api-micro-staff.herokuapp.com/cuerpo_tecnico/listar_por_equipo/${idEquipo}`,
 			{
 				method: "GET",
 				headers: {
@@ -45,7 +45,7 @@ export default function List() {
 
 	const listarIntegrantes = async () => {
 		const resp = await fetch(
-			`http://localhost:4000/integrante_cuerpo_tecnico/listar_por_cuerpo_tecnico/${idCuerpoTecnico}`,
+			`https://api-micro-staff.herokuapp.com/integrante_cuerpo_tecnico/listar_por_cuerpo_tecnico/${idCuerpoTecnico}`,
 			{
 				method: "GET",
 				headers: {

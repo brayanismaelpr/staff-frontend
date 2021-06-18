@@ -7,6 +7,18 @@ export default function List() {
 	const [listaIntegrantes, setListaIntegrantes] = useState([]);
 
 	useEffect(() => {
+		const listarCuerpoTecnicos = async () => {
+			const resp = await fetch(
+				`https://api-micro-staff.herokuapp.com/cuerpo_tecnico/listar_por_equipo/${idEquipo}`,
+				{
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			).then((res) => res.json());
+			return resp;
+		};
 		const getlistaCuerpoTecnicos = async () => {
 			const res = await listarCuerpoTecnicos();
 			if (!res.error) {
@@ -19,6 +31,18 @@ export default function List() {
 	}, [idEquipo]);
 
 	useEffect(() => {
+		const listarIntegrantes = async () => {
+			const resp = await fetch(
+				`https://api-micro-staff.herokuapp.com/integrante_cuerpo_tecnico/listar_por_cuerpo_tecnico/${idCuerpoTecnico}`,
+				{
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			).then((res) => res.json());
+			return resp;
+		};
 		const getlistaIntegrantes = async () => {
 			const res = await listarIntegrantes();
 			if (!res.error) {
@@ -28,33 +52,7 @@ export default function List() {
 		if (idEquipo) {
 			getlistaIntegrantes();
 		}
-	}, [idCuerpoTecnico]);
-
-	const listarCuerpoTecnicos = async () => {
-		const resp = await fetch(
-			`https://api-micro-staff.herokuapp.com/cuerpo_tecnico/listar_por_equipo/${idEquipo}`,
-			{
-				method: "GET",
-				headers: {
-					"Content-Type": "application/json",
-				},
-			}
-		).then((res) => res.json());
-		return resp;
-	};
-
-	const listarIntegrantes = async () => {
-		const resp = await fetch(
-			`https://api-micro-staff.herokuapp.com/integrante_cuerpo_tecnico/listar_por_cuerpo_tecnico/${idCuerpoTecnico}`,
-			{
-				method: "GET",
-				headers: {
-					"Content-Type": "application/json",
-				},
-			}
-		).then((res) => res.json());
-		return resp;
-	};
+	}, [idEquipo, idCuerpoTecnico]);
 
 	return (
 		<>

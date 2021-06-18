@@ -1,6 +1,5 @@
 import "./App.css";
 
-import index from "./pages/Index/Index";
 import registerstaff from "./pages/RegisterStaff/RegisterStaff";
 import registermemberstaff from "./pages/RegisterMemberStaff/RegisterMemberStaff";
 import listpersonstaff from "./pages/ListPersonStaff/ListPersonStaff";
@@ -12,7 +11,6 @@ import { Route } from "wouter";
 export default function App() {
 	return (
 		<div className="App">
-			<Route path="/" component={index} />
 			<Route path="/registrar-cuerpo-tecnico" component={registerstaff} />
 			<Route path="/registrar-ficha-jugador" component={registerfile} />
 			<Route

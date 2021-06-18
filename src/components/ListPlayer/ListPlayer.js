@@ -5,6 +5,18 @@ export default function ListPlayer() {
 	const [listaJugadores, setListaJugadores] = useState([]);
 
 	useEffect(() => {
+		const listarJugadores = async () => {
+			const resp = await fetch(
+				`https://api-micro-player.herokuapp.com/jugador/listar_por_equipo/${idEquipo}`,
+				{
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			).then((res) => res.json());
+			return resp;
+		};
 		const getListaJugadores = async () => {
 			const res = await listarJugadores();
 			if (!res.error) {
@@ -15,19 +27,6 @@ export default function ListPlayer() {
 			getListaJugadores();
 		}
 	}, [idEquipo]);
-
-	const listarJugadores = async () => {
-		const resp = await fetch(
-			`https://api-micro-player.herokuapp.com/jugador/listar_por_equipo/${idEquipo}`,
-			{
-				method: "GET",
-				headers: {
-					"Content-Type": "application/json",
-				},
-			}
-		).then((res) => res.json());
-		return resp;
-	};
 
 	return (
 		<>

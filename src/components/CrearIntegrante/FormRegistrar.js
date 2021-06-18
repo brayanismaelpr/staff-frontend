@@ -26,6 +26,18 @@ export default function FormRegistrar() {
 				setListaCuerpoTecnico(res);
 			}
 		};
+		const listarCuerpoTecnicos = async () => {
+			const resp = await fetch(
+				`https://api-micro-staff.herokuapp.com/cuerpo_tecnico/listar_por_equipo/${idEquipo}`,
+				{
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			).then((res) => res.json());
+			return resp;
+		};
 		if (idEquipo) {
 			getlistaCuerpoTecnicos();
 		}
@@ -34,19 +46,6 @@ export default function FormRegistrar() {
 	const listarTipoIntegrantes = async () => {
 		const resp = await fetch(
 			"https://api-micro-staff.herokuapp.com/tipo_integrante/listar",
-			{
-				method: "GET",
-				headers: {
-					"Content-Type": "application/json",
-				},
-			}
-		).then((res) => res.json());
-		return resp;
-	};
-
-	const listarCuerpoTecnicos = async () => {
-		const resp = await fetch(
-			`https://api-micro-staff.herokuapp.com/cuerpo_tecnico/listar_por_equipo/${idEquipo}`,
 			{
 				method: "GET",
 				headers: {

@@ -3,8 +3,6 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
 export default function FormRegistrar() {
-	const [error, setError] = useState(false);
-	const [success, setSuccess] = useState(false);
 	const [data, setData] = useState({});
 
 	const MySwal = withReactContent(Swal);
@@ -29,7 +27,6 @@ export default function FormRegistrar() {
 			}
 		).then((res) => res.json());
 		if (resp.error) {
-			setError(true);
 		} else {
 			MySwal.fire({
 				icon: "success",
@@ -45,7 +42,6 @@ export default function FormRegistrar() {
 					text: "Todo ha salido correctamente!",
 				});
 			});
-			setSuccess(true);
 		}
 	};
 
